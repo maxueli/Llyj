@@ -1,0 +1,181 @@
+<!--<div class=" videos">
+  <div class="pic">
+    <img src="{{expertInfo.headUrl}}" class="head_img" alt="">
+  </div>
+  <div class="clearfix">
+    <div class="videosInfo">
+      <span class="pull-left">{{expertInfo.realName}}</span>
+      <div class="pull-left ">
+        <img src="../../../assets/img/star-1.png" class="header-star" alt="">
+        <img src="../../../assets/img/star-1.png" class="header-star" alt="">
+        <img src="../../../assets/img/star-1.png" class="header-star" alt="">
+        <img src="../../../assets/img/star-1.png" class="header-star" alt="">
+        <img src="../../../assets/img/star-1.png" class="header-star" alt="">
+      </div>
+      <span class="pull-left">{{expertInfo.starRating}}</span>
+    </div>
+    <div>
+      {{expertInfo.mobile}}
+    </div>
+  </div>
+
+  <div class="header-logo">
+    <img src="../../../assets/img/online.png" alt="">
+    <div class="wzz">问诊中</div>
+  </div>
+  
+</div>-->
+<div class="videos-box">
+  <div class="body" id="itemVideo0">
+    <!--头部信息区域-->
+    <div class="body_header">
+      <div class="body_header_msg">
+        <ul class="list-inline msg-left pull-left">
+          <li>
+            <img src="{{_callInfo.headUrl}}" alt="">
+          </li>
+          <li>
+            <span class="text">{{_callInfo.name}}</span>
+          </li>
+        </ul>
+        <ul class="list-inline pull-right msg-right">
+          <li class="text">{{_callInfo.brand}}</li>
+          <li class="text">/</li>
+          <li class="text header-btn" *ngFor='let item of _callInfo.faultRange'>{{item}}</li>
+          <!--<li class="text header-btn">故障</li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="body-right">
+      <ul class="list-group mylist-sty" id="video-container-multiple">
+        <!--<li >aaaasdasd</li>
+        <li>asdasdasd</li>
+        <li class="videoActive">asdasd</li>
+        <li>asdasda</li>-->
+        <!--<li>sdasdasdasd</li>-->
+        <!--<li>sasdasdd</li>-->
+        <!--<li>sd</li>-->
+        <!--<li>sdsadasdasdasa</li>-->
+      </ul>
+    </div>
+    <!--底部按钮区域-->
+    <div class="body-footer">
+      <ul class="list-inline  pull-left">
+        <li class="lookfile" (click)='getFindcallhistory()'>
+          <img src="../../../assets/img/lookfile.png" alt="" title='查看'>
+          <div class="model-set" [hidden]='setStatus'>
+            <ul id="ulfiles">
+              <li *ngFor='let item of showFile'>
+                <div>
+                  <a href='{{item.fileUrl}}' target="_blank">{{item.fileName}}</a>
+                  <span>{{dynamic}}%</span>
+                </div>
+                <progressbar [value]="dynamic" [type]="info"></progressbar>
+              </li>
+            </ul>
+          </div>
+          <div class="msg-number">{{showFile.length}}</div>
+
+        </li>
+        <li class="upFile">
+          <form id='upfiles'>
+            <input type="file" (change)='videoUpFile()' name="file">
+          </form>
+          <img src="../../../assets/img/upload.png" alt="">
+        </li>
+        <li class="camera">
+          <img src="../../../assets/img/Opencamera.png" (click)='camera()' title="相机" alt="">
+          <button class="zx switch-audio-button"></button>
+        </li>
+        <li class="Qhcamera">
+          <img src="../../../assets/img/rotate.png" (click)="pick_up_head()" title="摄像头" alt="">
+          <button class="xzxj escreen-sharing-button">
+            <div id="js_ShareScreenList">
+              <ul></ul>
+            </div>
+          </button>
+        </li>
+        <li>
+          <img src="../../../assets/img/invite.png" (click)='staticModal.show();addExpert()' title="添加联系人">
+        </li>
+      </ul>
+      <ul class="list-inline pull-right">
+        <li class="time-style">
+          00:01:24
+        </li>
+        <li class="videoClose">
+          <button class="end end-call-button" (click)='phoneEnd()' title="挂断"></button>
+          <!--<img class="end end-call-botton" src="../../../assets/img/hangup.png" alt="" (click)='phoneEnd()' title="挂断">-->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-style">
+    <div class="modal-content">
+      <div class="modal-header modal-headers">
+        <h4 class="modal-title pull-left">添加联系人</h4>
+        <button type="button" class="close pull-right" (click)="staticModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body clearfix">
+        <div class="pull-left contacts">
+          <div class="contacts-search">
+            <input type="text">
+          </div>
+          <div class="contacts-list">
+            <div class="contacts-list-info">
+              <!--<div class="contacts-list-letter">A</div>-->
+              <ul>
+                <li *ngFor='let item of otherFriend' (click)='selectfriend(item)'>
+                  <img src="{{item.headUrl}}" alt="" />
+                  <span>{{item.name}}</span>
+                  <div class="pull-right blueBtn">
+                    <i [ngClass]='{checkfriend:friend==item}'></i>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pull-right contacts-info">
+          <div class="contacts-info-content">
+            <ul class="list-inline">
+              <li *ngIf='selected'>
+                <img src="{{friend.headUrl}}" alt="">
+                <p>{{friend.name}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="footBtn">
+            <button class="determineBtn" (click)="Okyqfriend();staticModal.hide()" [disabled]='disabled'>
+                      确定
+            </button>
+            <button class="cancelBtn" (click)="staticModal.hide()">
+                      取消
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" bsModal #messageModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">提示</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="messageModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{message}}
+      </div>
+    </div>
+  </div>
+</div>

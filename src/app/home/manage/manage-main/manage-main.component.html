@@ -1,0 +1,28 @@
+<div class="manage-main" [@flyIn]='active'>
+    <div class="left-tabs">
+        <ul class="manage-tabs">
+            <li>
+                <a routerLink="/home/manage/basic" routerLinkActive="activeStyle" class="defaultStyle">
+                    <b class="basic"></b>
+                    <span>基本信息</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/home/manage/skill" routerLinkActive="activeStyle" class="defaultStyle">
+                    <b class="skill"></b>
+                    <span>技能信息</span>
+                </a>
+
+            </li>
+            <li>
+                <a routerLink="/home/manage/authentication" routerLinkActive="activeStyle" class="defaultStyle">
+                    <b class="authentication"></b>
+                    <span>认证信息</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="right-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

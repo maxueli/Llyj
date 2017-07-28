@@ -1,0 +1,78 @@
+<div class="header">
+    <img src="../../assets/img/loginlog.png" alt="logo">
+</div>
+<div class="main">
+    <div class="content">
+        <div class="shadow">
+            <div class="login">
+                <form #form='ngForm' (ngSubmit)="form.form.valid && login()" novalidate role="form">
+                    <div class="username">
+                        <span>账号</span>
+                        <label for="name"></label>
+                        <input #name="ngModel" id="name" type="text" [(ngModel)]='_user.userName' maxlength="11" minlength="4" required name="username"
+                            placeholder="请输入您的账号">
+                        <div *ngIf="name.errors && (name.dirty || name.touched)">
+                            <div [hidden]="!name.errors.required">
+                                用户名不能为空
+                            </div>
+                            <div [hidden]="!name.errors.minlength">
+                                用户名不能少于4位
+                            </div>
+                            <div [hidden]="!name.errors.maxlength">
+                                用户名不能超过11位
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pwd">
+                        <span>密码</span>
+                        <label for="password"></label>
+                        <input #pass='ngModel' id="password" type="password" [(ngModel)]='_user.password' maxlength="8" minlength="6" required name="password"
+                            placeholder="请输入您的密码">
+                        <div *ngIf="pass.errors && (pass.dirty || pass.touched)">
+                            <div [hidden]="!pass.errors.required">
+                                密码不能为空
+                            </div>
+                            <div [hidden]="!pass.errors.minlength">
+                                密码不能少于6位
+                            </div>
+                            <div [hidden]="!pass.errors.maxlength">
+                                密码不能超过8位
+                            </div>
+                        </div>
+                    </div>
+                    <div class="land">
+                        <button type="submit" class="btn" [disabled]="form.form.invalid && !form.form.valid ">登录</button>
+                    </div>
+                    <div class="forgetpwd">
+                        <button type="button" routerLink='/modifypwd'>忘记密码</button>
+                    </div>
+                </form>
+            </div>
+            <div class="logo">
+                <img src="../../assets/img/Background.png">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="foot">
+    &copy;华汽投资控股有限公司
+</div>
+<div class="modal fade" bsModal #massageModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">提示</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="massageModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{message}}
+      </div>
+    </div>
+  </div>
+</div>
+

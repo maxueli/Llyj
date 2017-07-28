@@ -1,0 +1,104 @@
+<div class="basic-box" [@flyIn]='active'>
+    <div class="headPortrait">
+        <div class="headPortraitImg">
+            <img [src]="headUrl" alt="">
+        </div>
+        <div class="headPortraitTxt">
+            <span (click)="updateHeaderImg.show()">修改头像</span>
+        </div>
+    </div>
+    <h1 class="title">基本信息</h1>
+    <div class="baseInfo">
+        <form>
+            <div class="nickname">
+                <p class="subtitle">昵称</p>
+                <input type="text" name="nickname" id="nickName" class="nicknameInput" [(ngModel)]="basicParams.nickName" required placeholder="请输入昵称">
+            </div>
+            <div class="birthday">
+                <p class="subtitle">出生日期</p>
+                <select class="birthdaySel" [(ngModel)]="birYear" [ngModelOptions]="{standalone: true}" (change)="loadMonths('')">
+                    <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                </select>
+                <select class="birthdaySel" [(ngModel)]="birMonth" [ngModelOptions]="{standalone: true}" (change)="loadDays('')">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select class="birthdaySel" [(ngModel)]="birDay" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                </select>
+            </div>
+            <div class="shop">
+                <span class="subtitle">所在门店</span>
+                <input type="text" name="storeName" class="search" [(ngModel)]="basicParams.storeName" disabled>
+                <ul class="letters">
+                    <li *ngFor="let item of storeLetterList" [ngClass]="{'active':storeLetter==item.label}" (click)="selectStoreLetter(item)">
+                        {{item.label}}
+                    </li>
+                </ul>
+                <ul class="brandContent">
+                    <li *ngFor="let item of storeList" [ngClass]="{'active':store==item.value}" (click)="selectStore(item)">
+                        {{item.text}}
+                    </li>
+                </ul>
+            </div>
+            <div class="area">
+                <p class="subtitle">所在地区</p>
+                <select class="areaSel" [ngModelOptions]="{standalone: true}" [(ngModel)]="basicParams.provId" (change)="loadCitys('')">
+                    <option *ngFor="let item of provList" [value]="item[0]">{{item[1]}}</option>
+                </select>
+                <select class="areaSel" [ngModelOptions]="{standalone: true}" [(ngModel)]="basicParams.cityId" (change)="loadAreas('')">
+                    <option *ngFor="let item of cityList" [value]="item[0]">{{item[1]}}</option>
+                </select>
+                <select class="areaSel" [ngModelOptions]="{standalone: true}" [(ngModel)]="basicParams.districtId">
+                    <option *ngFor="let item of areaList" [value]="item[0]">{{item[1]}}</option>
+                </select>
+            </div>
+            <div class="reset">
+                <p class="subtitle">密码</p>
+                <input type="password" class="resetInput" id="resetpwd" placeholder="******" disabled>
+                <span (click)="location()">重置</span>
+            </div>
+            <div class="btns">
+                <button type="button" class="active" (click)="basicInfoSave()">保存修改</button>
+                <button type="button" (click)="infoReset()">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div bsModal #updateHeaderImg="bs-modal" class="modal fade updateModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true" [config]="{backdrop:'static'}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">头像设置</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="updateHeaderImg.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="updateImg">
+                    <div>
+                        <div>
+                            <img src="../../../assets/img/add.png" alt="">选择图片
+                        </div>
+                        <img [src]="this.basicParams.headUrl" class="updateImg" alt="">
+                        <img src="../../../assets/img/fadePic.png" class="imgBg" [hidden]="isShowBG">
+                        <input type="file" name="image" (change)="chooseImg()">
+                    </div>
+                    <button aria-label="Close" (click)="updateHeaderImg.hide();imgSave()">保存修改</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

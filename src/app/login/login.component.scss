@@ -1,0 +1,146 @@
+.header {
+    width: 100%;
+    height: 116px;
+    text-align: center;
+    background: #fff;
+    line-height: 116px;
+}
+
+.main {
+    width: 100%; // min-height: 890px;
+    background: #EEEEEE;
+    
+    .content {
+        width: 900px;
+        margin: auto;
+        padding: 154px 0 120px 0;
+        .shadow {
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            box-shadow: 0 10px 40px rgba(53, 53, 68, .18);
+        }
+        .shadow::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .login {
+            width: 44.44%;
+            height: 500px;
+            float: left;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background: #fff;
+            padding-top: 102px;
+            .username {
+                margin-bottom: 36px;
+                position: relative;
+                >div {
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 175px;
+                    height: 57px;
+                    background: url('../../assets/img/tips.png') no-repeat;
+                    >div {
+                        position: absolute;
+                        top: 19px;
+                        left: 37px;
+                    }
+                }
+            }
+            .pwd {
+                margin-bottom: 94px;
+                position: relative;
+                >div {
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 175px;
+                    height: 57px;
+                    background: url('../../assets/img/tips.png') no-repeat;
+                    >div {
+                        position: absolute;
+                        top: 19px;
+                        left: 37px;
+                    }
+                }
+            }
+            .land>button {
+                width: 100%;
+                height: 54px;
+                border-radius: 4px;
+                font-size: 18px;
+                color: #fff;
+                background: #4587F5;
+                border: 0; // outline: none; 
+                margin-bottom: 18px;
+                // outline: none;
+            }
+            .forgetpwd {
+                text-align: center;
+                button {
+                    border: 0;
+                    background: none;
+                    font-size: 14px;
+                    color: #7c88e8;
+                }
+            }
+            div {
+                width: 278px;
+                margin: 0 auto;
+            }
+            span {
+                display: block;
+                font-size: 14px;
+                color: #4e5164; // margin-bottom: 16px;
+            }
+            input {
+                border: 0;
+                outline: none;
+                width: 100%;
+                padding: 5px 0;
+                border-bottom: 1px solid #ccc4d7;
+            }
+            input:focus {
+                border-bottom-color: #5dadff;
+            }
+        }
+        .logo {
+            width: 55.55%;
+            height: 500px;
+            float: left;
+        }
+    }
+    .content::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .logo>img {
+        width: 100%;
+        height: 500px; // width: 500px;
+        max-width: 517px;
+        min-width: 517px;
+    }
+}
+
+.foot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 74px;
+    line-height: 74px;
+    color: #9b9b9b;
+    font-size: 12px;
+    text-align: center;
+    background: #fff;
+}
+
+// @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+//  }
+// @media (min-width: @screen-lg-min) {
+// }

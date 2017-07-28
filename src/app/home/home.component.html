@@ -1,0 +1,129 @@
+<div class="header">
+    <div class="header-box">
+        <div class="logo">
+            <a routerLink='/home'>
+                蓝领驿家
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a (click)='feedbackModal.show()'>意见反馈</a>
+            </li>
+            <li>
+                <a (click)='staticModal.show()'>退出</a>
+            </li>
+            <!--<app-alert [msg]='mxl' (childEvent) = "showmsg($event)"></app-alert>-->
+        </ul>
+    </div>
+    <div id="div1"></div>
+</div>
+<!--弹框组件-->
+<div class="content">
+
+    <router-outlet></router-outlet>
+</div>
+<div class="modal fade" bsModal #replyModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">蓝领驿家</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="replyModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <span class="replyName">{{permission.SName}}&nbsp;</span> 邀请您视频问诊<br/><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{closeTime}}&nbsp;秒后自动挂断
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)='okPhone()'>接听</button>
+                <button type="button" class="btn btn-danger" (click)='escPhone()'>挂断</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--意见反馈-->
+<div class="modal fade" bsModal #feedbackModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog feedback-dialog">
+        <div class="modal-content">
+            <div class="modal-header feedback-header">
+                <h4 class="modal-title pull-left">意见反馈</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="feedbackModal.hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body feedback-body">
+                <div class="feedback-content">
+
+                    <div class="feedback-content-title">想有什么问题或意见想对我们说？</div>
+                    <div class="feedback-textarea">
+                        <textarea [(ngModel)]='_Feedbacks.content' name="feddback" wrap='soft' maxlength='100' cols="1" rows="1"></textarea>
+                    </div>
+                    <div class="picOponion">
+                        <div>
+                            图片意见
+                            <form name="form1" id="form1">
+                                +
+                                <!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>-->
+                                <input type="file" id="file1" name="images" multiple="multiple"> 
+                                上传图片
+                            </form>
+                        </div>
+                        <ul>
+                            <li *ngFor='let item of _Feedbacks.feedBackFilesDto;let idx = index'>
+                                <span class="btnClose" (click)='deleteImg(idx)'>X</span>
+                                <img src='{{item.fileUrl}}' alt="" >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footBtn">
+                        <button (click)='update()'>提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--退出-->
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">蓝领驿家</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                确定退出登录吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)='staticModal.hide()'>取消</button>
+                <button type="button" class="btn btn-primary" (click)='outLogin()'>退出</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--提示信息-->
+<div class="modal fade" bsModal #messageModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">提示</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="messageModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<modals [contnet]="contents"></modals>-->

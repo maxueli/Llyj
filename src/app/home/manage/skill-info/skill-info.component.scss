@@ -1,0 +1,155 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 864px;
+}
+li {
+    float: left;
+    width: 130px;
+    border: 1px solid #E6E6E6;
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+.modal li{
+    position: relative
+}
+.expertise>div{
+    color: #313131;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+input{
+    width: 130px;
+    height: 48px;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+
+.skill-box {
+    width: 864px;
+    padding: 30px 0 0 30px;
+    button{
+        width: 64px;
+        height: 24px;
+        color: #4184f8;
+        font-size: 14px;
+        border-radius: 12px;
+        border: 1px solid #4184f8;
+        background: none;
+        outline: none;
+    }
+    .skill-title {
+        margin-bottom: 25px;
+        span{
+            color: #313131;
+            font-size: 24px;
+        }
+        button{
+            margin: 5px 0;
+            >i{
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                background: url('../../../../assets/img/revise.png') no-repeat center;
+                margin-right: 5px;
+            }
+        }
+    }
+    .expertiseBox{
+        height: 620px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        .expertise {
+            width: 100%;
+            >div{
+                margin: 20px 0 10px 0;
+            }
+            li {
+                height: 56px;
+                line-height: 56px;
+            }
+        }
+    }
+    .submit{
+        text-align: center;
+        >button{
+            width: 170px;
+            height: 54px;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            background: #4184f8;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+        }
+    }
+}
+
+.modal{
+    button{
+        outline: none;
+    }
+    li{
+        height: 48px;
+        line-height: 48px;
+        cursor: pointer;
+        >i{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: url('../../../../assets/img/add-skill.png') no-repeat center;
+            margin-left: 8px;
+        }
+    }
+    li.active {
+        color: #4184f8;
+        background: #ebf2ff;
+        border: 1px solid #4184f8;
+        >i{                
+            background: url('../../../../assets/img/selected.png') no-repeat center;
+        }
+    }       
+}
+.updateBrand{
+    .modal-body{
+        overflow: auto;
+        height: 700px;
+        padding: 0 0 0 50px;
+        .expertise{
+            >div {
+                height: 36px;
+                line-height: 36px;
+                margin-top: 10px;
+                margin-bottom: 0;  
+            }
+        }
+    }
+}
+.updateSkill{    
+    .modal-dialog{
+        width: 500px;
+        li{
+            margin: 10px 13px;
+        }
+        .confirm{
+            margin: 20px 0;
+            text-align: center;
+            >button{
+                width: 100px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 16px;
+                border-radius: 5px;
+                padding: 0;
+                margin: 0 10px;
+            }
+        }
+    }
+}

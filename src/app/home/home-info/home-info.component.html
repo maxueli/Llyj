@@ -1,0 +1,55 @@
+<div class="user-content" [@flyIn]="active">
+    <div [hidden]="loading">
+        <div class="user-header">
+            <div class="pic">
+                <a routerLink="/home/manage">
+                    <img src="{{_expertInfo.headUrl}}" title="更改设置">
+                </a>
+            </div>
+            <div class="user">
+                <div class="name">{{_expertInfo.realName}}
+                    <ul>
+                        <li *ngFor="let item of starIcon">
+                            <img src="{{item.icon}}" alt="">
+                        </li>
+                    </ul>
+                    {{_expertInfo.starRating}}
+                </div>
+                <div class="phone">{{_expertInfo.mobile}}</div>
+            </div>
+            <div class="status">在线</div>
+        </div>
+        <div class="user-info">
+            <ul>
+                <li>
+                    <img src="../../../assets/img/answer.png">
+                    <p>累计接听:{{_expertInfo.answerNum}}次</p>
+                </li>
+                <li>
+                    <img src="../../../assets/img/problem.png">
+                    <p>累计求助:{{_expertInfo.seekHelpNum}}次</p>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="loading" [hidden]="!loading">
+        <img src="../../../assets/img/loading.gif">加载中...
+    </div>
+</div>
+<div class="modal fade" bsModal #massageModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">提示</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeMassageModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{message}}
+      </div>
+    </div>
+  </div>
+</div>

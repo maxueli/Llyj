@@ -1,0 +1,73 @@
+<div class="skill-box" [@flyIn]='active'>
+    <div class="skill-title clearfix">
+        <span class='pull-left'>技能信息</span>
+        <button class="pull-right" (click)="updateBrand.show()">
+			<i></i>新增
+		</button>
+    </div>
+    <div class="expertiseBox">
+        <div class="expertise" *ngFor="let item of params.carBrands; let i = index">
+            <div class="clearfix">
+                <span class='pull-left'>{{item.carBrandName}}</span>
+                <div class="pull-right">
+                    <button (click)="defauleSkill(i)">修改</button>
+                    <button (click)="deleteSkill(i)">删除</button>
+                </div>
+            </div>
+            <ul class="clearfix">
+                <li *ngFor="let item of item.faults">{{item.text}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="submit" [hidden]="isSubmit">
+        <button type="button" class="btn btn-success" (click)="saveInfo()">保存修改</button>
+    </div>
+</div>
+
+<div bsModal #updateBrand="bs-modal" class="modal fade updateBrand" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true" [config]="{backdrop:'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">选择品牌</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="updateBrand.hide()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+            </div>
+            <div class="modal-body">
+                <div class="expertise" *ngFor="let items of brandLetterList">
+                    <div>{{items.label}}</div>
+                    <ul class="clearfix">
+                        <li *ngFor="let item of items.options" [ngClass]="{'active': item.selected == true}">
+                            <input type="checkbox" name="skill" (change)="selectBrand(item)" [disabled]="item.selected == true">{{item.text}}<i></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div bsModal #updateSkill="bs-modal" class="modal fade updateSkill" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true" [config]="{backdrop:'static'}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">选择技能</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="cancelSkill('cancel')">
+					<span aria-hidden="true">&times;</span>
+				</button>
+            </div>
+            <div class="modal-body">
+                <ul class="clearfix">
+                    <li *ngFor="let item of skillLetterList" [ngClass]="{'active': item.selected == true}">
+                        <input type="checkbox" name="skill" (change)="selectSkill(item)">{{item.text}}<i></i>
+                    </li>
+                </ul>
+                <div class="confirm">
+                    <button type="button" class="btn btn-success" aria-label="Close" (click)="confirmSkill()" [disabled]="isComfirm">确定</button>
+                    <button type="button" class="btn btn-warning" aria-label="Close" (click)="cancelSkill('cancel')">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

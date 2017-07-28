@@ -1,0 +1,346 @@
+// 标题（基本信息）
+.basic-box {
+    width: 864px;
+    padding-left: 30px;
+}
+
+.title {
+    font-size: 24px;
+    color: #313131;
+    margin-top: 30px;
+}
+
+// 头像
+.headPortrait {
+    float: right;
+    margin: 30px 21px 0 0;
+    text-align: center;
+    .headPortraitImg {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 140px;
+        background: #dddddd;
+        margin-bottom: 20px;
+        img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            // text-align: center;
+            // line-height: 140px;
+        }
+    }
+    .headPortraitTxt {
+        color: #4184f8;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
+
+.baseInfo {
+    // width: 864px;
+    // background: #fcfcfc; // 昵称
+    .nickname {
+        margin-top: 20px; // 小标题
+        .subtitle {
+            font-size: 16px;
+            color: #313131;
+        } // 昵称文本框
+        .nicknameInput {
+            width: 450px;
+            height: 56px;
+            padding-left: 20px;
+            background: #ffffff;
+            opacity: 1;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px; // outline-color: rgba(65, 132, 248, 0.2);
+        } // 设置各浏览器placeholder样式
+        input::-webkit-input-placeholder {
+            /* WebKit browsers */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        input:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        input::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        input:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+    } // 出生日期
+    .birthday {
+        margin-top: 30px; // 小标题
+        .subtitle {
+            font-size: 16px;
+            color: #313131;
+        }
+        .birthdaySel {
+            width: 130px;
+            height: 56px;
+            font-size: 14px;
+            color: #313131;
+            padding: 0 10px 0 10px;
+            margin-right: 30px;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+        }
+    } // 所在门店
+    .shop {
+        margin-top: 30px;
+        position: relative;
+        .subtitle {
+            font-size: 16px;
+            color: #313131;
+        }
+        .search {
+            width: 350px;
+            height: 42px;
+            padding-left: 20px;
+            margin-left: 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+        }
+        input{
+            background: #fff;
+        }
+        // 设置各浏览器placeholder样式
+        input::-webkit-input-placeholder {
+            /* WebKit browsers */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        input:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        input::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        input:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            font-size: 14px;
+            color: #8f8f8f;
+        }
+        >i {
+            position: relative;
+            left: -40px;
+        }
+        .letters,
+        .brandContent {
+            overflow: hidden;
+            list-style: none;
+            margin-top: 30px;
+            padding: 0;
+            >li {
+                float: left;                 
+                height: 24px;  
+                line-height: 24px;
+                text-align: center;
+                border-radius: 4px;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+            .active {
+                color: #ffffff;
+                background: #4184f8;
+            }
+        }
+        .letters>li{
+            width: 24px;
+        }
+        .brandContent{
+            margin-top: 10px;
+            >li{
+                min-width: 100px;
+                height: 36px;         
+                line-height: 36px;
+                padding: 0 10px;
+            }
+        }
+        >div {
+            margin-top: 20px;
+            >p {
+                display: inline-block;
+                width: 130px;
+                height: 56px;
+                border: 1px solid #e5e5e5;
+                border-radius: 4px;
+                opacity: 1;
+                background: #ffffff;
+                text-align: center;
+                line-height: 56px;
+                margin-right: 30px;
+            }
+        }
+    } // 所在地区
+    .area {
+        .subtitle {
+            font-size: 16px;
+            color: #313131;
+        }
+        .areaSel {
+            width: 130px;
+            height: 56px;
+            font-size: 14px;
+            color: #313131;
+            padding: 0 10px 0 10px;
+            margin-right: 30px;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+        }
+    } // 重置密码
+    .reset {
+        margin-top: 20px; // 小标题
+        .subtitle {
+            font-size: 16px;
+            color: #313131;
+        }
+        .resetInput {
+            width: 450px;
+            height: 56px;
+            margin-right: 30px;
+            border: 1px solid #e5e5e5;
+            padding-left: 20px;
+            border-radius: 4px;
+            background: #fff;
+        }
+        span {
+            color: #4184f8;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    } // 按钮
+    .btns {
+        margin-top: 50px;
+        button {
+            border: none;
+            outline: none;
+            background: #ffffff;
+            color: #313131;
+            font-size: 16px;
+        }
+        .active {
+            width: 170px;
+            height: 54px;
+            text-align: center;
+            line-height: 54px;
+            color: #ffffff;
+            background: #4184f8;
+            border-radius: 4px;
+            opacity: 1;
+            outline: none;
+            border: none;
+            margin-right: 48px;
+        }
+    }
+}
+
+.updateModal .modal-content{
+    background: #fff;
+    border-radius: 6px;
+    height: 500px;
+    .modal-header .modal-title{
+        color: #313131;
+        font-size: 16px;
+    }
+    .modal-body{
+        >form{
+            text-align: center;           
+            >div{
+                width: 260px;
+                height: 260px;
+                border-top: 1px solid transparent;
+                background: rgba(238,237,242,.5);
+                margin: 30px auto;
+                position: relative;
+                >div{
+                    width: 124px;
+                    height: 44px;
+                    line-height: 44px;
+                    color: #313131;
+                    font-size: 14px;
+                    text-align: center;
+                    margin: 108px auto;
+                    background: #fff;
+                    box-shadow: 0px 0px 3px #9f9f9f;
+                    outline: 1px solid #e5e5e5;
+                    border-radius: 4px;
+                    img{
+                        margin: 0 5px;
+                    }
+                }
+                >img{
+                    width: 260px;
+                    height: 260px;
+                    cursor: pointer;
+                }
+                >img.updateImg, >img.imgBg, >input{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 10;
+                }
+                >img.imgBg{
+                    opacity: .5;
+                    z-index: 20;
+                }
+                >input{
+                    width: 260px;
+                    height: 260px;
+                    opacity: 0;
+                    cursor: pointer;
+                    z-index: 30;
+                }
+            }
+            >button{
+                width: 170px;
+                height: 54px;
+                line-height: 54px;
+                text-align: center;
+                background: #4184f8;
+                border-radius: 4px;
+                color: #fff;
+                border: none;
+                margin-top: 30px;
+            }
+        }
+    }
+}
+.resetPwd .modal-content{
+    form{
+        .group{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            label{
+                    margin-bottom: 10px;
+                    font-weight: normal;
+                    font-size: 16px;
+            }
+            input{
+                border-radius: 5px;
+            }
+            button{
+                width: 80px;
+                border-radius: 5px;
+                margin: 0 10px;
+            }
+        }
+        .group:last-child{
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+    }
+}
+    

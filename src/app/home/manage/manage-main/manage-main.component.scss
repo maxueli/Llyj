@@ -1,0 +1,87 @@
+.manage-main {
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    background: white;
+    min-height: 800px;
+    .left-tabs {
+        float: left;
+        width: 130px;
+        height: 100%;
+        background: #F9F9F9;
+        .manage-tabs {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 800px;
+            
+        }
+    }
+    .right-content {
+        float: left;
+    }
+}
+
+.manage-main::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.defaultStyle{
+    display: block;
+    width: 130px;
+    height: 130px;
+    font-size: 14px;
+    color: #bfbfbf;
+    text-align: center;
+    border-top: 1px solid transparent;
+    background: #F9F9F9;
+     text-decoration:none
+
+}
+.defaultStyle>b{
+    margin: 25px  auto ;
+    display: block;
+}
+.defaultStyle>.basic{
+    width: 27px;
+    height: 32px;
+    background: url('../../../../assets/img/data.png');
+}
+.defaultStyle>.skill{
+    width: 31px;
+    height: 32px;
+    background: url('../../../../assets/img/skill.png');
+
+} 
+.defaultStyle>.authentication{
+    width: 31px;
+    height: 28px;
+    background: url('../../../../assets/img/authentication.png');
+}
+
+
+.activeStyle{
+    color: #4184f8;
+    
+    background: url('../../../../assets/img/active.png') no-repeat;
+    background-color: white;
+    
+}
+.activeStyle>.basic{
+    width: 27px;
+    height: 32px;
+    background: url('../../../../assets/img/data-3.png');
+}
+.activeStyle>.skill{
+    width: 31px;
+    height: 32px;
+    background: url('../../../../assets/img/skill-3.png');
+}
+
+.activeStyle>.authentication{
+    width: 31px;
+    height: 28px;
+    background: url('../../../../assets/img/authentication-3.png');
+}

@@ -1,0 +1,52 @@
+<div class="header">
+    <img src="../../assets/img/loginlog.png" alt="logo">
+</div>
+<div class="main">
+    <div class="content">
+        <div class="title">
+            <h4>登录密码</h4>
+            <hr class="underline">
+        </div>
+        <div class="contentBox">
+            <div class="verify" *ngIf="active">
+                <form #codeform="ngForm" *ngIf="active" class="form-horizontal" (ngSubmit)="messageValid()">
+                    <div class="form-group clearfix">
+                        <label for="mobile">手机号</label>
+                        <input type="text" name="mobile" id="mobile" class="form-control" placeholder="请输入手机号" [(ngModel)]="mobile" required pattern="\d*"
+                            maxlength="11" minlength="11">
+                        <span *ngIf="formErrors.mobile" class="text-danger">{{ formErrors.mobile }}</span>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="pwd">验证码</label>
+                        <input type="text" name="pwd" id="pwd" class="form-control" placeholder="请输入验证码" [(ngModel)]="param.validCode" required pattern="\d*"
+                            maxlength="6" minlength="6">
+                        <button type="button" class="btn" (click)="getMessageCode()" [disabled]="codeClick">{{codeInfo}}</button>
+                        <span *ngIf="formErrors.pwd" class="text-danger">{{ formErrors.pwd }}</span>
+                    </div>
+                    <div class="nextBox">
+                        <button type="submit" class="btn" [disabled]="!codeform.form.valid">下一步</button>
+                    </div>
+                </form>
+            </div>
+            <div class="password" *ngIf="!active">
+                <form #codeform="ngForm" *ngIf="!active" class="form-horizontal" (ngSubmit)="resetPassword()">
+                    <div class="form-group clearfix">
+                        <label for="newPass">新密码</label>
+                        <input type="password" name="newPass" id="newPass" class="form-control" placeholder="请输入新密码" [(ngModel)]="param.newPassword"
+                            required pattern="[a-zA-Z0-9]*" maxlength="10" minlength="6">
+                        <span *ngIf="formErrors.newPass" class="text-danger">{{ formErrors.newPass }}</span>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="againPass" class="lab">确认密码</label>
+                        <input type="password" name="againPass" id="againPass" class="form-control" placeholder="请再次输入新密码" [(ngModel)]="againPassword"
+                            required pattern="[a-zA-Z0-9]*" maxlength="10" minlength="6">
+                        <span *ngIf="formErrors.againPass" class="text-danger">{{ formErrors.againPass }}</span>
+                    </div>
+                    <div class="comfirmBox">
+                        <button type="submit" class="btn" [disabled]="!codeform.form.valid">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

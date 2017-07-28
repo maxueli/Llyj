@@ -1,0 +1,15 @@
+<div class="authentication" [@flyIn]='active'>
+    <p class="title">认证信息</p>
+    <div>
+        <label for="name">姓名：</label>
+        <span id="name">{{authData.name}}</span>
+    </div>
+    <div>
+        <label for="workExperience">工作年限：</label>
+        <span id="workExperience">{{authData.workYear}}年</span>
+    </div>
+    <div class="certificate">
+        <label for="certificate">人社部颁发证书</label>
+        <img *ngFor="let img of authData.authImg" [src]="img.fileUrl" alt="">
+    </div>
+</div>

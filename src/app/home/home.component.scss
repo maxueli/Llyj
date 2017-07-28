@@ -1,0 +1,195 @@
+.header {
+    // width: 100%;
+    min-width: 1440px;
+    height: 64px;
+    background: #fff;
+    // margin-bottom: 14px;
+    position: absolute;
+    // top: 0;
+    left: 0;
+    right: 0;
+    .header-box {
+        width: 1024px;
+        height: 64px;
+        line-height: 64px;
+        padding: 0 30px;
+        margin: 0 auto;
+    margin-bottom: 64px;
+        .logo {
+            float: left;
+            cursor: pointer;
+            a {
+                text-decoration: none;
+                font-size: 16px;
+                color: #4184f8;
+            }
+        }
+        ul {
+            float: right;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                float: left;
+                margin-left: 30px;
+                a {
+                    cursor: pointer;
+                    color: #515151;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .header-box::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.content {
+    min-width: 1440px; // height: 800px;
+    background: #f5f5f5;
+    padding-top: 75px;
+}
+
+body {
+    background: #f5f5f5;
+}
+// 意见反馈
+/*意见反馈*/
+.feedback-dialog{
+    width: 600px;
+    height: 540px;
+}
+.modal-title{
+    color: #313131;
+    font-size: 16px;
+}
+.feedback-header{
+    padding: 18px 24px;
+    width: 100%;
+}
+.feedback-body{
+    padding: 20px 24px 24px;
+}
+.feedback-content-title,.picOponion > div{
+    line-height: 30px;
+    margin-bottom: 20px;
+
+}
+.picOponion > div{
+    form{
+        display: inline-block;
+        position: relative;
+        width: 100px;
+        height: 30px;
+        margin-left: 10px;
+        border: 1px solid #4184f8;
+        border-radius: 5px;
+        font-size: 14px;
+        text-align: center;
+        color: #4184f8;
+        input{
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 30px;
+            border: 0;
+            border-radius: 5px;
+            background: transparent;
+            opacity: 0;
+        }
+    }
+}
+.feedback-textarea > textarea{
+     resize: none;
+     width: 552px;
+     height: 154px;
+     line-height: 20px;
+     padding: 10px;
+     font-size: 14px;
+     color: #bfbfbf;
+}
+.feedback-textarea{
+    width: 552px;
+    height: 154px;
+    margin-bottom: 20px;
+}
+.picOponion{
+    margin-bottom: 34px;
+}
+.picOponion > div{
+    color: #313131;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.picOponion >  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.picOponion >  ul >li{
+    float: left;
+    width: 102px;
+    height: 102px;
+    border: 1px dashed #bfbfbf;
+    // background: url('../../assets/img/addPic.png') no-repeat center center;
+    position: relative;
+}
+// .picOponion >  ul >li:nth-child(1) ,.picOponion >  ul >li:nth-child(2),.picOponion >  ul >li:nth-child(3){
+    // margin-right: 47px;
+
+// }  
+.picOponion > ul li{
+    position: relative;
+    margin: 0 17px 10px 17px;
+    span{
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: red;
+        // opacity: 0.3;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        z-index: 100;
+    }
+}
+.picOponion >  ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.picOponion >  ul >li input{
+    width: 102px;
+    height: 102px;
+    opacity: 0;
+    cursor: pointer;
+}
+.picOponion >  ul >li img{
+    width: 102px;
+    height: 102px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.footBtn{
+    text-align: center;
+}
+.footBtn > button{
+    width: 170px;
+    height: 54px;
+    background: #4184F7;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    line-height: 54px;
+}
+.replyName{
+    font-size: 16px;
+}

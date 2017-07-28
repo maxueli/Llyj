@@ -1,0 +1,31 @@
+.authentication{
+    padding: 30px;
+    .title{
+        font-size: 24px;
+        color: #313131;
+        margin-bottom: 20px;
+    }
+    label, span{
+        font-size: 16px;
+        font-weight: normal;
+        color: #313131;
+    }
+    label{
+        width: 90px;
+    }
+    div{
+        margin-bottom: 30px;
+    }
+    img{
+        width: 306px;
+        height: 172px;
+        background: #eee;
+    }
+    .certificate{
+        label{
+            width: 120px;
+            margin-bottom: 30px;
+            display: block;
+        }
+    }
+}
