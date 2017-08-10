@@ -4,17 +4,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## 用法
 
-npm i -g @angular/cli
-npm install
-ng serve
+# npm i -g @angular/cli
+# npm install
+# ng serve
 
 ## 如果之前装过angular-cli需要先卸载：npm uninstall -g angular-cli 如果之前装过@angular/cli需要先卸载：npm uninstall -g @angular/cli 如果你之前已经尝试安装过node模块，请把Llyj根目录下的node_moduels目录删掉 然后依次执行以下命令：
 
-npm cache clean
-npm prune
-npm i -g @angular/cli
-npm install
-ng serve
+# npm cache clean
+# npm prune
+# npm i -g @angular/cli
+# npm install
+# ng serve
 
 ## Development server
 
